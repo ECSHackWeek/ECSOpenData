@@ -1,11 +1,11 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_security import Security, login_required, \
      SQLAlchemySessionUserDatastore
 from database import db_session, init_db
 from models import User, Role
 
 # Create app
-app = Flask(__name__)
+app = Flask(__name__, template_folder="static/templates")
 app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = 'super-secret'
 app.config['SECURITY_PASSWORD_SALT'] = '0'
@@ -26,7 +26,7 @@ def create_user():
 @app.route('/')
 @login_required
 def home():
-    return 'Here you go!'
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run()
