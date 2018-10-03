@@ -1,3 +1,7 @@
+"""
+SQLAlchemy data models
+"""
+
 from database import Base
 from flask_security import UserMixin, RoleMixin
 from sqlalchemy.orm import relationship, backref
@@ -96,11 +100,12 @@ class MasterTable(Base, JSONSerializer):
     __tablename__ = 'master_table'
     # Here we define columns for the master_table
     # Notice that each column is also a normal Python instance attribute.
-    id = Column(Integer, primary_key=True)
-    data_name = Column(String(250), nullable=False) # this is some sort of description - or just users name?
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    dataset = Column(String(250), nullable=False)
+    # this is some sort of description - or just users name?
     exp_class = Column(String(250), nullable=False)
-    authors = Column(String(250), nullable=False)
-    doi = Column(String(250), nullable=False)
-    paper_title = Column(String(250), nullable = False)
-    journal = Column(String(250), nullable = False)
-    pub_year = Column(String(250), nullable = False)
+    ref_authors = Column(String(250), nullable=False)
+    ref_doi = Column(String(250), nullable=False)
+    ref_title = Column(String(250), nullable=False)
+    ref_journal = Column(String(250), nullable=False)
+    ref_year = Column(String(250), nullable=False)
