@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect, request, abort
+from flask import Flask, render_template, url_for, redirect, request, abort, jsonify
 from flask_security import Security, login_required, \
      SQLAlchemySessionUserDatastore, current_user
 import flask_admin
@@ -38,21 +38,31 @@ def create_user():
     if not user_datastore.get_user('user'):
         user_datastore.create_user(email='user', password='password')
     db_session.commit()
-#def create_user():
-#    init_db()
-#    if not user_datastore.get_user('admin'):
-#        print("creating new 'admin' user with password 'password'")
-#        admin_user = user_datastore.create_user(email='admin', password='password')
-##        user_datastore.add_role_to_user(user=admin_user, role='admin')
-##    if not user_datastore.get_user('user'):
-##        user_datastore.create_user(email='user', password='password')
-##    db_session.commit()
+
 
 # Views
 @app.route('/')
 @login_required
 def home():
     return render_template('index.html')
+
+
+@app.route('/fetchExperiment', methods=['GET'])
+def fetchTypes():
+    """
+    Stand in for now.
+    Eventually will retun the unique experiment types from the MasterTable
+
+    """
+    experiments = User.query.all()
+
+    exp_types = []
+    for experiment in experiments:
+        if experiment.password not in exp_types:
+            exp_types.append(experiment.password)
+
+    print(exp_types)
+    return jsonify(exp_types=exp_types)
 
 
 # Create admin
