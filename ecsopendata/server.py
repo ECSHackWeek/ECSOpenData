@@ -23,13 +23,30 @@ security = Security(app, user_datastore)
 @app.before_first_request
 def create_user():
     init_db()
+
+    # Check if admin role exists, create new role if not
+    admin_role = user_datastore.find_or_create_role(name='admin')
+
+    # Check if admin user exists, create new user if not
     if not user_datastore.get_user('admin'):
         print("creating new 'admin' user with password 'password'")
-        admin_user = user_datastore.create_user(email='admin', password='password')
-        user_datastore.add_role_to_user(user=admin_user, role='admin')
+        admin_user = user_datastore.create_user(email='admin',
+                                                password='password')
+        user_datastore.add_role_to_user(user=admin_user, role=admin_role)
+
+    # Check if user exists, create if not
     if not user_datastore.get_user('user'):
         user_datastore.create_user(email='user', password='password')
     db_session.commit()
+#def create_user():
+#    init_db()
+#    if not user_datastore.get_user('admin'):
+#        print("creating new 'admin' user with password 'password'")
+#        admin_user = user_datastore.create_user(email='admin', password='password')
+##        user_datastore.add_role_to_user(user=admin_user, role='admin')
+##    if not user_datastore.get_user('user'):
+##        user_datastore.create_user(email='user', password='password')
+##    db_session.commit()
 
 # Views
 @app.route('/')
