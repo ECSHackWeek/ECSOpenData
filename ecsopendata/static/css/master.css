@@ -1,0 +1,15 @@
+#first-row {
+  margin-top: 75px;
+}
+
+#table-row {
+  margin-top: 15px;
+}
+
+div#filters {
+  min-height: 15vh;
+}
+
+div#visualization {
+  min-height: 15vh;
+}
