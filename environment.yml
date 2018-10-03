@@ -3,6 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  - python=3.6
   - asn1crypto=0.24.0=py37_3
   - babel=2.6.0=py_1
   - blinker=1.4=py_1
