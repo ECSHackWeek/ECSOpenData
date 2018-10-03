@@ -32,3 +32,6 @@ class User(Base, UserMixin):
     confirmed_at = Column(DateTime())
     roles = relationship('Role', secondary='roles_users',
                          backref=backref('users', lazy='dynamic'))
+
+    def has_role(self, role):
+        return role in self.roles
