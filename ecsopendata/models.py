@@ -33,6 +33,10 @@ class User(Base, UserMixin):
     roles = relationship('Role', secondary='roles_users',
                          backref=backref('users', lazy='dynamic'))
 
+    def has_role(self, role):
+        return role in self.roles
+
+      
 class MasterTable(Base):
     __tablename__ = 'master_table'
     # Here we define columns for the master_table

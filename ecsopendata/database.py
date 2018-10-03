@@ -25,7 +25,6 @@ def init_db():
         #import models
         #Base.metadata.create_all(bind = engine)
         print("call init master table")
-
         print("import example data")
     # import all modules here that might define models so that
     # they will be registered properly on the metadata.  Otherwise
