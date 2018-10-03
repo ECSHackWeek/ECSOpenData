@@ -2,6 +2,8 @@
 
 ### This is a work in progress demostration for a combined data management engine
 
+[![Build Status](https://travis-ci.org/ECSHackWeek/ECSOpenData.svg?branch=master)](https://travis-ci.org/ECSHackWeek/ECSOpenData)
+
 #### To setup the `conda` environment to run the Flask application:
 ```
 conda env create -f environment.yml
