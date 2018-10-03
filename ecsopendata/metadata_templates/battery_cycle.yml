@@ -26,23 +26,25 @@ c-rate:
 voltage:
     min:
     max:
-anode:
-    material:
-    thickness:
-    porosity:
-cathode:
-    material:
-    thickness:
-    porosity:
-electrolyte:
-    solvent:
-    salt:
-    molarity:
-    separator:
+battery:
+    source:
+    capacity:
+    anode:
         material:
         thickness:
         porosity:
-battery_manufacturer:
+    cathode:
+        material:
+        thickness:
+        porosity:
+    electrolyte:
+        solvent:
+        salt:
+        molarity:
+        separator:
+            material:
+            thickness:
+            porosity:
 temperature:
     min:
     max:
