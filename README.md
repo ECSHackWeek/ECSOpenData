@@ -10,9 +10,9 @@ Note, that the above is one time step.
 
 #### To run this from the command line:
 ```
-# The `conda activate` step only needs to be done once per shell.
+# The `conda activate` step only needs to be done once per shell instance
 conda activate ecsopendata
-# Start the server
-python ecsopendata/server.py
+# Start the server using the run script
+./run
 # Open a web browser with the following URL: http://127.0.0.1:5000/login
 ```

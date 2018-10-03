@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# remove the test.db to force a rebuild during development
+TEST_DB=ecsopendata/test.db
+if [ -f $TEST_DB ]; then
+	echo "Removing the existing test database $TEST_DB"
+	rm $TEST_DB
+fi
+
+# start the server
+python ecsopendata/server.py
