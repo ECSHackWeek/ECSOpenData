@@ -19,7 +19,9 @@ security = Security(app, user_datastore)
 @app.before_first_request
 def create_user():
     init_db()
-    # user_datastore.create_user(email='admin', password='password')
+    if not user_datastore.get_user('admin'):
+        print("creating new 'admin' user with password 'password'")
+        user_datastore.create_user(email='admin', password='password')
     db_session.commit()
 
 # Views
