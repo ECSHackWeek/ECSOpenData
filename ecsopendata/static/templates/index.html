@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="static/css/master.css">
 
   </head>
-  <body>
+  <body bgcolor="#FF69B4">
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="">ECS OpenData</a>
@@ -62,11 +62,7 @@
       <div class="row" id="first-row">
         <div class="col" id="filters">
           <h2>Filters</h2>
-          <select class="custom-select">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+          <select class="custom-select" id="select-experiment-type">
           </select>
         </div>
         <div class="col" id="visualization">
@@ -76,7 +72,7 @@
       </div>
       <div class="row" id="table-row">
         <div class="col">
-          <table id="table_id" class="display">
+          <table id="table_id" class="display hover">
             <thead>
                 <tr>
                     <th>Column 1</th>
@@ -98,7 +94,7 @@
       </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
@@ -106,9 +102,23 @@
     <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">
-    $(document).ready( function () {
-      $('#table_id').DataTable();
-    } );
+      $(document).ready( function () {
+        $('#table_id').DataTable();
+      } );
+    </script>
+
+    <!-- Fetch data -->
+    <script type="text/javascript">
+      $.getJSON( "/fetchExperiment", function( data ) {
+        console.log(data);
+        $.each(data['exp_types'], function( key, val ) {
+          console.log(key)
+          $('#select-experiment-type')
+             .append($("<option></option>")
+             .attr("value", key)
+             .text(val));
+        });
+      });
     </script>
   </body>
 </html>
