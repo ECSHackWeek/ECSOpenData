@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect, request, abort
+from flask import Flask, render_template, url_for, redirect, request, abort, jsonify
 from flask_security import Security, login_required, \
      SQLAlchemySessionUserDatastore, current_user
 import flask_admin
@@ -38,21 +38,25 @@ def create_user():
     if not user_datastore.get_user('user'):
         user_datastore.create_user(email='user', password='password')
     db_session.commit()
-#def create_user():
-#    init_db()
-#    if not user_datastore.get_user('admin'):
-#        print("creating new 'admin' user with password 'password'")
-#        admin_user = user_datastore.create_user(email='admin', password='password')
-##        user_datastore.add_role_to_user(user=admin_user, role='admin')
-##    if not user_datastore.get_user('user'):
-##        user_datastore.create_user(email='user', password='password')
-##    db_session.commit()
+
 
 # Views
 @app.route('/')
 @login_required
 def home():
-    return render_template('index.html')
+    import random
+    data = [[a, b] for a, b in zip(random.sample(range(50),50), random.sample(range(80),50))]
+    print(data)
+    return render_template('index.html', rows=data)
+
+@app.route('/test')
+def index():
+    import random
+    data = [random.sample(range(50),50), random.sample(range(20,80),50)]          
+#    rows = jsonify(data)
+#    print(data)
+#    return jsonify(data)
+    return render_template('table_overview.html', rows=data)
 
 
 # Create admin
@@ -89,6 +93,7 @@ class BaseModelView(sqla.ModelView):
                 return redirect(url_for('security.login', next=request.url))
 
 
+            
 admin.add_view(BaseModelView(User, db_session))
 admin.add_view(BaseModelView(Role, db_session))
 admin.add_view(BaseModelView(RolesUsers, db_session))

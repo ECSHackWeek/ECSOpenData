@@ -84,6 +84,14 @@
                 </tr>
             </thead>
             <tbody>
+                {% for item in rows %}
+                     <tr>
+                     {% for value in item %}
+                        <td>{{ value }}</td>
+                     {% endfor %}
+                     </tr>
+                 {% endfor %}
+<!--
                 <tr>
                     <td>Row 1 Data 1</td>
                     <td>Row 1 Data 2</td>
@@ -92,6 +100,7 @@
                     <td>Row 2 Data 1</td>
                     <td>Row 2 Data 2</td>
                 </tr>
+-->
             </tbody>
           </table>
         </div>
