@@ -16,8 +16,10 @@ db_session = scoped_session(sessionmaker(autocommit=False,
 Base = declarative_base()
 Base.query = db_session.query_property()
 
+from models import *
 def init_db():
-    import models
+#    import models
+#    from models import *
     Base.metadata.create_all(bind=engine)
     if not os.path.exists(DATABASE_PATH):
     	# replace this if statement with sqlalchemy if table doesn't exist in master table:
