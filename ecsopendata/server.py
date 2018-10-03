@@ -6,7 +6,7 @@ import flask_admin
 from flask_admin.contrib import sqla
 from flask_admin.menu import MenuLink
 from database import db_session, init_db
-from models import User, Role, RolesUsers, JSONEncoder
+from models import User, Role, RolesUsers, MasterTable, JSONEncoder
 
 # Create app
 app = Flask(__name__, template_folder="static/templates")
@@ -74,11 +74,11 @@ def fetchData():
     """
     Fetches all of the data from a given data table
 
-    Currently hard coded to the User table, but will move to the MasterTable
-    once available
+    Currently hard coded to the MasterTable, but should eventually update based
+    on the experiment type selection dropdown 
     """
 
-    data = User.query.all()
+    data = MasterTable.query.all()
 
     return jsonify(data)
 
@@ -122,6 +122,7 @@ class BaseModelView(sqla.ModelView):
 admin.add_view(BaseModelView(User, db_session))
 admin.add_view(BaseModelView(Role, db_session))
 admin.add_view(BaseModelView(RolesUsers, db_session))
+admin.add_view(BaseModelView(MasterTable, db_session))
 admin.add_link(MenuLink(name='Back to ECS OpenData', url='/'))
 
 if __name__ == '__main__':

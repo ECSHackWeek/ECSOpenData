@@ -17,7 +17,7 @@ class JSONEncoder(BaseJSONEncoder):
 
     def default(self, obj):
 
-        if isinstance(obj, (User, Role, RolesUsers)):
+        if isinstance(obj, (User, Role, RolesUsers, MasterTable)):
             if isinstance(obj, JSONSerializer):
                 print('is instance')
                 return obj.to_json()
