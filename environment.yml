@@ -13,3 +13,4 @@ dependencies:
   - flask-wtf
   - flask
   - pandas
+  - xlrd
