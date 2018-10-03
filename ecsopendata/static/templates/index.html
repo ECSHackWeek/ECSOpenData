@@ -74,6 +74,10 @@
           <a href="https://placeholder.com"><img src="https://via.placeholder.com/500x350"></a>
         </div>
       </div>
+        <div>
+        <input type="text" id="lower_bound" onkeyup="myFunction()" placeholder="Lower bound">
+        <input type="text" id="upper_bound" onkeyup="myFunction()" placeholder="Upper bound">
+        </div>
       <div class="row" id="table-row">
         <div class="col">
           <table id="table_id" class="display">
@@ -119,5 +123,32 @@
       $('#table_id').DataTable();
     } );
     </script>
+      
+      <script>
+        function myFunction() {
+          // Declare variables 
+          var input1, input2, filter1, filter2, table, tr, td, i;
+          input1 = document.getElementById("lower_bound");
+          input2 = document.getElementById("upper_bound");
+          filter1 = parseFloat(input1.value);
+          filter2 = parseFloat(input2.value);
+          table = document.getElementById("table_id");
+          tr = table.getElementsByTagName("tr");
+          if (filter2 == 0) {
+              filter2 = 100;
+          }
+          // Loop through all table rows, and hide those who don't match the search query
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                if (parseFloat(td.innerHTML) > filter1 && parseFloat(td.innerHTML) < filter2){
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            } 
+          }
+        }
+</script>
   </body>
 </html>
