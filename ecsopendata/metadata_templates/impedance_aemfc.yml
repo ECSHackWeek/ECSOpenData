@@ -1,0 +1,62 @@
+file-author:
+    name: Steven DeCaluwe
+    ORCID: 0000-0002-3356-8247
+experiment-type: linear impedance
+instrument-type:
+device-type: aemfc
+reference:
+    doi:
+    authors:
+        -author:
+            name:
+            ORCID:
+        -author:
+            name:
+            ORCID:
+    title:
+    journal:
+    issue:
+    year:
+    pages:
+impedance-settings:
+    control-mode:
+    set-point:
+    perturbance:
+    frequency:
+        min:
+        max:
+pemfc:
+    source:
+    anode-GDL:
+        source:
+        material:
+        thickness:
+        porosity:
+    anode-catalyst-layer:
+        source:
+        type:
+        catalyst:
+        support:
+        ionomer:
+        thickness:
+        porosity:
+    cathode-GDL:
+        source:
+        material:
+        thickness:
+        porosity:
+    cathode-catalyst-layer:
+        source:
+        type:
+        catalyst:
+        support:
+        ionomer:
+        thickness:
+        porosity:
+    electrolyte:
+        source:
+        material:
+        thickness:
+temperature:
+    min:
+    max:
