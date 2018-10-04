@@ -1,15 +1,17 @@
-from flask import Flask, render_template, url_for, redirect, request, abort, jsonify
+from flask import Flask, render_template, url_for, redirect, \
+     request, abort, jsonify
 from flask_security import Security, login_required, \
      SQLAlchemySessionUserDatastore, current_user
 import flask_admin
 from flask_admin.contrib import sqla
 from flask_admin.menu import MenuLink
-from flask_admin.contrib.sqla import ModelView
 from database import db_session, init_db
-from models import User, Role, RolesUsers
+from models import User, Role, RolesUsers, MasterTable, JSONEncoder
 
 # Create app
 app = Flask(__name__, template_folder="static/templates")
+app.json_encoder = JSONEncoder
+
 app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = 'super-secret'
 app.config['SECURITY_PASSWORD_SALT'] = '0'
@@ -18,6 +20,7 @@ app.config['SECURITY_PASSWORD_SALT'] = '0'
 user_datastore = SQLAlchemySessionUserDatastore(db_session,
                                                 User, Role)
 security = Security(app, user_datastore)
+
 
 # Create an admin and normal user to test with
 @app.before_first_request
@@ -65,6 +68,21 @@ def fetchTypes():
     return jsonify(exp_types=exp_types)
 
 
+@app.route('/fetchData', methods=['GET'])
+def fetchData():
+
+    """
+    Fetches all of the data from a given data table
+
+    Currently hard coded to the MasterTable, but should eventually update based
+    on the experiment type selection dropdown 
+    """
+
+    data = MasterTable.query.all()
+
+    return jsonify(data)
+
+
 # Create admin
 admin = flask_admin.Admin(
     app,
@@ -72,6 +90,7 @@ admin = flask_admin.Admin(
     base_template='my_master.html',
     template_mode='bootstrap3',
 )
+
 
 # Create customized model view class
 class BaseModelView(sqla.ModelView):
@@ -88,7 +107,8 @@ class BaseModelView(sqla.ModelView):
 
     def _handle_view(self, name, **kwargs):
         """
-        Override builtin _handle_view in order to redirect users when a view is not accessible.
+        Override builtin _handle_view in order to redirect
+        users when a view is not accessible.
         """
         if not self.is_accessible():
             if current_user.is_authenticated:
@@ -102,6 +122,7 @@ class BaseModelView(sqla.ModelView):
 admin.add_view(BaseModelView(User, db_session))
 admin.add_view(BaseModelView(Role, db_session))
 admin.add_view(BaseModelView(RolesUsers, db_session))
+admin.add_view(BaseModelView(MasterTable, db_session))
 admin.add_link(MenuLink(name='Back to ECS OpenData', url='/'))
 
 if __name__ == '__main__':

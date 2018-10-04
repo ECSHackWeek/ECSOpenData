@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 
+
     <script src="https://use.fontawesome.com/c4974a2d5d.js"></script>
 
     <!-- custom CSS -->
@@ -72,23 +73,7 @@
       </div>
       <div class="row" id="table-row">
         <div class="col">
-          <table id="table_id" class="display hover">
-            <thead>
-                <tr>
-                    <th>Column 1</th>
-                    <th>Column 2</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Row 1 Data 1</td>
-                    <td>Row 1 Data 2</td>
-                </tr>
-                <tr>
-                    <td>Row 2 Data 1</td>
-                    <td>Row 2 Data 2</td>
-                </tr>
-            </tbody>
+          <table id="data-table" class="display hover">
           </table>
         </div>
       </div>
@@ -101,13 +86,8 @@
     <!-- DataTables -->
     <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready( function () {
-        $('#table_id').DataTable();
-      } );
-    </script>
 
-    <!-- Fetch data -->
+    <!-- Fetch experiment type to populate dropdown -->
     <script type="text/javascript">
       $.getJSON( "/fetchExperiment", function( data ) {
         console.log(data);
@@ -117,6 +97,35 @@
              .append($("<option></option>")
              .attr("value", key)
              .text(val));
+        });
+      });
+    </script>
+
+    <!-- Fetch data -->
+    <script type="text/javascript">
+      $.getJSON( "/fetchData", function( data ) {
+        console.log(data);
+
+        column_ids = [];
+        $.each(data[0], d => column_ids.push(d))
+
+        console.log(column_ids)
+
+        table_header = '<thead>'
+        $.each(column_ids, (i, d) => table_header += '<td>' + d + '</td>')
+        $('#data-table').append(table_header + '</thead>')
+
+        table_body = '<tbody>'
+        $.each(data, (i, d) => {
+          table_body += '<tr>'
+          $.each(d, (j, e) => {
+            table_body += '<td>' + e + '</td>'
+          })
+          table_body += '</tr>'
+        })
+        $('#data-table').append(table_body + '</tbody>')
+        $('#data-table').DataTable( {
+          paging: false
         });
       });
     </script>
