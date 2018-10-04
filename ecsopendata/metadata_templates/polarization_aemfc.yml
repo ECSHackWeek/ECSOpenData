@@ -1,0 +1,65 @@
+file-author:
+    name: Steven DeCaluwe
+    ORCID: 0000-0002-3356-8247
+experiment-type: polarization (voltage-current)
+instrument-type:
+device-type: aemfc
+reference:
+    doi:
+    authors:
+        -author:
+            name:
+            ORCID:
+        -author:
+            name:
+            ORCID:
+    title:
+    journal:
+    issue:
+    year:
+    pages:
+polarization-settings:
+    control-mode:
+    number-of-points:
+    time-per-point:
+    voltage:
+        min:
+        max:
+    current:
+        min:
+        max:
+aemfc:
+    source:
+    anode-GDL:
+        source:
+        material:
+        thickness:
+        porosity:
+    anode-catalyst-layer:
+        source:
+        type:
+        catalyst:
+        support:
+        ionomer:
+        thickness:
+        porosity:
+    cathode-GDL:
+        source:
+        material:
+        thickness:
+        porosity:
+    cathode-catalyst-layer:
+        source:
+        type:
+        catalyst:
+        support:
+        ionomer:
+        thickness:
+        porosity:
+    electrolyte:
+        source:
+        material:
+        thickness:
+temperature:
+    min:
+    max:
