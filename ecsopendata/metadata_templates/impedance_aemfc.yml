@@ -25,7 +25,7 @@ impedance-settings:
     frequency:
         min:
         max:
-pemfc:
+aemfc:
     source:
     anode-GDL:
         source:
