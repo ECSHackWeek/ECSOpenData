@@ -3,6 +3,7 @@ file-author:
     ORCID: 0000-0002-3356-8247
 experiment-type: linear impedance
 instrument-type:
+device-type: sofc
 reference:
     doi:
     authors:

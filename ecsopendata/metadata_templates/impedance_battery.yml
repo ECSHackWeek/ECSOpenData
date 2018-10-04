@@ -2,6 +2,7 @@ file-author:
     name: Steven DeCaluwe
     ORCID: 0000-0002-3356-8247
 experiment-type: linear impedance
+device-type: battery
 instrument-type:
 reference:
     doi:
