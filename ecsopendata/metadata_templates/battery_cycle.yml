@@ -3,6 +3,7 @@ file-author:
     ORCID: 0000-0002-3356-8247
 experiment-type: battery cycling
 instrument-type: MACCOR
+device-type: battery
 reference:
     doi:
     authors:
@@ -17,6 +18,9 @@ reference:
     issue:
     year:
     pages:
+cycle-steps:
+    -step:
+    -step:
 current:
     min:
     max:
