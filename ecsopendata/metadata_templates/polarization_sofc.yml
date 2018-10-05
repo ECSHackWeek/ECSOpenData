@@ -28,6 +28,9 @@ polarization-settings:
     current:
         min:
         max:
+temperature:
+    min:
+    max:
 sofc:
     source:
     anode:
@@ -55,6 +58,3 @@ sofc:
         -layer:
             material:
             thickness:
-temperature:
-    min:
-    max:

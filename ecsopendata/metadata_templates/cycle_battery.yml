@@ -30,6 +30,9 @@ c-rate:
 voltage:
     min:
     max:
+temperature:
+    min:
+    max:
 battery:
     source:
     capacity:
@@ -49,6 +52,3 @@ battery:
             material:
             thickness:
             porosity:
-temperature:
-    min:
-    max:

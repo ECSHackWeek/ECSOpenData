@@ -28,6 +28,9 @@ polarization-settings:
     current:
         min:
         max:
+temperature:
+    min:
+    max:
 pemfc:
     source:
     anode-GDL:
@@ -60,6 +63,3 @@ pemfc:
         source:
         material:
         thickness:
-temperature:
-    min:
-    max:

@@ -25,6 +25,9 @@ impedance-settings:
     frequency:
         min:
         max:
+temperature:
+    min:
+    max:
 pcfc:
     source:
     anode:
@@ -52,6 +55,3 @@ pcfc:
         -layer:
             material:
             thickness:
-temperature:
-    min:
-    max:

@@ -25,6 +25,9 @@ impedance-settings:
     frequency:
         min:
         max:
+temperature:
+    min:
+    max:
 aemfc:
     source:
     anode-GDL:
@@ -57,6 +60,3 @@ aemfc:
         source:
         material:
         thickness:
-temperature:
-    min:
-    max:

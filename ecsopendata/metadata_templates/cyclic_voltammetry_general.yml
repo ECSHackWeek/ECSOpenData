@@ -26,6 +26,9 @@ cv-settings:
     current:
         min:
         max:
+temperature:
+    min:
+    max:
 device:
     type:
     source:
@@ -43,6 +46,3 @@ device:
         source:
         material:
         thickness:
-temperature:
-    min:
-    max:
