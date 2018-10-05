@@ -1,0 +1,50 @@
+file-author:
+    name: Steven DeCaluwe
+    ORCID: 0000-0002-3356-8247
+experiment-type: cyclic voltammetry
+device-type: battery
+instrument-type:
+reference:
+    doi:
+    authors:
+        -author:
+            name:
+            ORCID:
+        -author:
+            name:
+            ORCID:
+    title:
+    journal:
+    issue:
+    year:
+    pages:
+cv-settings:
+    lower-terminal-potential:
+    upper-terminal-potential:
+    sweep-rate:
+    number-of-cycles:
+    current:
+        min:
+        max:
+battery:
+    source:
+    capacity:
+    anode:
+        material:
+        thickness:
+        porosity:
+    cathode:
+        material:
+        thickness:
+        porosity:
+    electrolyte:
+        solvent:
+        salt:
+        molarity:
+        separator:
+            material:
+            thickness:
+            porosity:
+temperature:
+    min:
+    max:

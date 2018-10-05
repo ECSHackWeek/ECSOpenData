@@ -1,0 +1,48 @@
+file-author:
+    name: Steven DeCaluwe
+    ORCID: 0000-0002-3356-8247
+experiment-type: cyclic voltammetry
+instrument-type:
+device-type:
+reference:
+    doi:
+    authors:
+        -author:
+            name:
+            ORCID:
+        -author:
+            name:
+            ORCID:
+    title:
+    journal:
+    issue:
+    year:
+    pages:
+cv-settings:
+    lower-terminal-potential:
+    upper-terminal-potential:
+    sweep-rate:
+    number-of-cycles:
+    current:
+        min:
+        max:
+device:
+    type:
+    source:
+    anode:
+        source:
+        material:
+        thickness:
+        notes:
+    cathode:
+        source:
+        material:
+        thickness:
+        notes:
+    electrolyte:
+        source:
+        material:
+        thickness:
+temperature:
+    min:
+    max:

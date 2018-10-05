@@ -1,0 +1,58 @@
+file-author:
+    name: Steven DeCaluwe
+    ORCID: 0000-0002-3356-8247
+experiment-type: cyclic voltammetry
+instrument-type:
+device-type: pcfc
+reference:
+    doi:
+    authors:
+        -author:
+            name:
+            ORCID:
+        -author:
+            name:
+            ORCID:
+    title:
+    journal:
+    issue:
+    year:
+    pages:
+cv-settings:
+    lower-terminal-potential:
+    upper-terminal-potential:
+    sweep-rate:
+    number-of-cycles:
+    current:
+        min:
+        max:
+pcfc:
+    source:
+    anode:
+        -layer:
+            material:
+            thickness:
+            porosity:
+        -layer:
+            material:
+            thickness:
+            porosity:
+    cathode:
+        -layer:
+            material:
+            thickness:
+            porosity:
+        -layer:
+            material:
+            thickness:
+            porosity:
+    electrolyte:
+        -layer:
+            material:
+            thickness:
+        -layer:
+            material:
+            thickness:
+temperature:
+    min:
+    max:
