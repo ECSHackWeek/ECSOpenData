@@ -1,8 +1,9 @@
 file-author:
     name: Steven DeCaluwe
     ORCID: 0000-0002-3356-8247
-experiment-type: battery cycling
-instrument-type: MACCOR
+experiment-type: linear impedance
+device-type: battery
+instrument-type:
 reference:
     doi:
     authors:
@@ -17,13 +18,14 @@ reference:
     issue:
     year:
     pages:
-current:
-    min:
-    max:
-c-rate:
-    min:
-    max:
-voltage:
+impedance-settings:
+    control-mode:
+    set-point:
+    perturbance:
+    frequency:
+        min:
+        max:
+temperature:
     min:
     max:
 battery:
@@ -45,6 +47,3 @@ battery:
             material:
             thickness:
             porosity:
-temperature:
-    min:
-    max:
